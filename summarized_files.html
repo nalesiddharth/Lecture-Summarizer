@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarized Files</title>
+    <link rel="stylesheet" href="summarized_styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">LectureSummarizer</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Summarized Files</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Summarized Files</h1>
+
+        <div class="filter-container">
+            <label for="subject-filter">Filter by Subject:</label>
+            <select id="subject-filter">
+                <option value="">All</option>
+                <!-- Subjects will be dynamically added here -->
+            </select>
+        
+            <label for="date-filter">Filter by Date:</label>
+            <input type="date" id="date-filter" onchange="filterFiles()">
+        
+            <input type="text" id="search-bar" placeholder="Search by file name">
+            <button onclick="searchFiles()">Search</button>
+        
+            <button id="refresh-btn" onclick="refreshFiles()">Refresh</button> <!-- Refresh Button -->
+        </div>
+        
+        
+
+        <table id="files-table">
+            <thead>
+                <tr>
+                    <th>File Name</th>
+                    <th>Subject</th>
+                    <th>Date Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="files-body">
+                <!-- Files will be dynamically inserted here -->
+            </tbody>
+        </table>
+
+        <div class="text-center">
+            <button id="back-btn" onclick="window.location.href='index.html'">Back</button>
+        </div>
+    </div>
+
+    <script src="summarized_files.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Based Audio Lecture Summarizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-logo">LectureSummarizer</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="summarized_files.html">Summarized Files</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Audio Lecture Summarizer</h1>
+        <div class="upload-container">
+            <h3>Upload Audio File</h3>
+            <input type="file" id="upload-file" accept="audio/*">
+            <button id="upload-btn" onclick="uploadAudio()">Upload and Summarize</button>
+        </div>
+
+        <div class="text-center">
+            <p>or</p>
+        </div>
+
+        <div class="recording-container">
+            <button id="start-btn" class="record-btn" onclick="startRecording()">
+                <span class="icon">🎤</span> Start Recording
+            </button>
+            <button id="stop-btn" class="record-btn" onclick="stopRecording()">
+                <span class="icon">⏹️</span> Stop Recording
+            </button>
+        </div>
+        <p id="recording-status" style="display:none;">Recording...</p>
+
+        <audio id="audio-player" controls style="display:none;" controlsList=""></audio>
+        <div id="duration" style="display:none; margin-top:8px; color:#555;">Duration: <span id="duration-value">0s</span></div>
+        
+        <button id="play-btn" style="display:none;" onclick="playAudio()">Play Recorded Audio</button>
+        <button id="remove-btn" style="display:none;" onclick="removeAudio()">Remove Recorded Audio</button>
+       
+
+        <button class="summarize-btn" id="summarize-btn" onclick="generateSummary()">Summarize</button>
+
+        <div class="summary-container">
+            <h2>Summary</h2>
+            <p id="summary">Summary of the audio will be displayed here.</p>
+            <button class="save-btn" id="save-btn" onclick="showSummaryForm()" style="display:none;">Save Summary</button>
+        </div>
+        
+        <div id="summary-form" class="summary-form" style="display:none;">
+            <h2>Document Details</h2>
+            <label for="doc-name">Document Name:</label>
+            <input type="text" id="doc-name" required>
+        
+            <label for="doc-subject">Subject:</label>
+            <input type="text" id="doc-subject" required>
+        
+            <label for="doc-date">Date:</label>
+            <input type="date" id="doc-date" required>
+        
+            <button onclick="saveSummary()">Save Summary</button>
+            <button onclick="cancelSummaryForm()">Cancel</button>
+        </div>        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
